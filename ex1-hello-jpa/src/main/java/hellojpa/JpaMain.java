@@ -13,14 +13,20 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-            Member member = em.find(Member.class, 1L);
-
-            member.setName("helloJPA");
-            List<Member> result = em.createQuery("select m from Member as m", Member.class).getResultList();
-
-            for(Member m: result){
-                System.out.println("member.name = "+m.getName());
-            }
+//            member.setName("helloJPA");
+//            List<Member> result = em.createQuery("select m from Member as m", Member.class).getResultList();
+//            for(Member m: result){
+//                System.out.println("member.name = "+m.getName());
+//            }
+//            // 영속
+//            Member member = em.find(Member.class, 1L);
+//            member.setName("zzzzz");
+//            if(member.getName().equals("zzzzz")){
+//                em.persist(member);
+//            }
+            Member member =new Member(200L,"member200");
+            em.persist(member);
+            em.flush();
 
             tx.commit();
         }catch(Exception e){
