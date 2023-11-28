@@ -7,30 +7,36 @@ import java.util.Date;
 //@Table(name = "MBR")
 public class Member {
     @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Long id;
-    private String name;
 
-    private Integer age;
-
-    @Enumerated(EnumType.STRING)
-    private RoleType roleType;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastModifiedDate;
-
-    @Lob
-    private String description;
+    @Column(name = "name")
+    private String username;
 
     protected Member(){
-
     }
-    public Member(Long id,  String name){
-        this.id = id;
-        this.name = name;
-    }
+//    private Integer age;
+//
+//    @Enumerated(EnumType.STRING)
+//    private RoleType roleType;
+//
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date createdDate;
+//
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date lastModifiedDate;
+//
+//    @Lob
+//    private String description;
+//
+//    @Transient //DB에 추가되지 않음
+//    private int temp;
+//
+//    public Member(Long id,  String name){
+//        this.id = id;
+//        this.name = name;
+//    }
+//
 
     public Long getId() {
         return id;
@@ -40,11 +46,11 @@ public class Member {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
